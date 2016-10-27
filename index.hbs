@@ -2,16 +2,19 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 {{!-- The big featured header --}}
-<header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
+<header class="main-header" {{#if @blog.cover}}style="background-image: url({{@blog.cover}}){{/if}}">
     <nav class="main-nav overlay clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
         {{#if @blog.navigation}}
             <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         {{/if}}
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">{{@blog.title}}</h1>
+            {{#if @blog.logo}}
+                <a class="page-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>
+            {{else}}
+                <h1 class="page-title">{{@blog.title}}</h1>
+            {{/if}}
             <h2 class="page-description">{{@blog.description}}</h2>
         </div>
     </div>
@@ -20,6 +23,39 @@
 
 {{!-- The main content area on the homepage --}}
 <main id="content" class="content" role="main">
+
+    <article class="{{post_class}} introduction">
+        <header class="post-header">
+            <h2 class="post-title">Moin Moin!</h2>
+        </header>
+        <section class="post-excerpt">
+            <div class="person-text">
+                <p>Mein Name ist Christopher Gross.</p>
+                <p>Ich bin Geek und wohne im wunderschönen Hamburg. Täglich widme ich mich mit voller Leidenschaft den modernen Technologien im Bereich der Webentwicklung.</p>
+                <p>Du brauchst heldenhafte Untersützung? Lass es mich wissen und gemeinsam rocken wir Dein nächstes Projekt!</p>
+            </div>
+            <a href="/ueber-mich/">
+                <div class="person-image">
+                    <img src="/assets/img/person.svg" />
+                </div>
+            </a>
+            <div class="clearfix"></div>
+        </section>
+        <footer class="post-meta">
+            <a href="/ueber-mich/">mehr Informationen</a><br />
+            <br />
+            <strong>Telefon:</strong> 040 2261 1667<br />
+            <strong>Mail:</strong> <a href="mailto:christopher@gross.rocks">christopher@gross.rocks</a><br />
+            <strong>Twitter:</strong> <a href="https://twitter.com/GrossRocks">GrossRocks</a>
+        </footer>
+    </article>
+
+    <div class="current-blog-posts">
+        <h2>
+            Aktuelle Blog Einträge<br />
+            <small>Über moderne Technologien der Webentwicklung</small>
+        </h2>
+    </div>
 
     {{!-- The tag below includes the post loop - partials/loop.hbs --}}
     {{> "loop"}}
