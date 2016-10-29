@@ -3,6 +3,8 @@
 This is a custom theme for [Ghost](http://github.com/tryghost/ghost/).
 This theme is based on the default theme called Casper.
 
+My current website is using this theme. [Demo](https://gross.rocks)
+
 To download, visit the [releases](https://github.com/GrossRocks/GrossRocksTheme/releases) page.
 
 ## Copyright & License
